@@ -131,7 +131,13 @@ void drawBackground(map *mapPtr, aRobot *botPtr)
             {setColour(black); fillRect(j*mapPtr->tileSize + 0.1*mapPtr->tileSize, i*mapPtr->tileSize + 0.1*mapPtr->tileSize, 0.8*mapPtr->tileSize, 0.8*mapPtr->tileSize);} 
             else if (mapPtr->arrayena[i][j] == 2)
                 {setColour(blue); fillArc(j*mapPtr->tileSize + 0.1*mapPtr->tileSize, i*mapPtr->tileSize + 0.1*mapPtr->tileSize, 0.8*mapPtr->tileSize, 0.8*mapPtr->tileSize, 0, 360); 
-
+                int xUpDown[3] = {j*mapPtr->tileSize + 0.3*mapPtr->tileSize, j*mapPtr->tileSize + (0.3+0.2)*mapPtr->tileSize, j*mapPtr->tileSize + (0.3+0.4)*mapPtr->tileSize};
+                int yUp[3] = {i*mapPtr->tileSize + 0.6*mapPtr->tileSize, i*mapPtr->tileSize + (0.3)*mapPtr->tileSize, i*mapPtr->tileSize + (0.6)*mapPtr->tileSize};
+                int yDown[3] = {i*mapPtr->tileSize + 0.4*mapPtr->tileSize, i*mapPtr->tileSize + (0.7)*mapPtr->tileSize, i*mapPtr->tileSize + (0.4)*mapPtr->tileSize};
+                setColour(white);
+                setLineWidth(1);
+                drawPolygon(3,xUpDown,yUp);
+                drawPolygon(3,xUpDown,yDown); 
             }  
         }
     }    
